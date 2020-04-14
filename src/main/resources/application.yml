@@ -1,0 +1,28 @@
+server:
+   port: 8083
+# JSON Pretty Print
+spring:
+    jackson:
+       serialization:
+          indent_output: true
+    main:
+       banner-mode: "off"
+          
+
+jsa:
+   cassandra:
+      keyspace-name: test_keyspace
+      contact-points: localhost
+      port: 32779
+   
+contacts:
+   delete:
+      url: http://localhost:8083/api/contacts/{id}
+   # Change logging level depending upon development and code promotion stage.
+logging:
+  level:
+    root: WARN
+    org.springframework.web: WARN
+    com.clc.webflux: DEBUG
+  file: logs/cassandra-reactive-service.log
+  
